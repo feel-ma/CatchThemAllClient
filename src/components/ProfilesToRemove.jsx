@@ -35,7 +35,7 @@ function ProfilesToRemove({jsons,fetchProjects, checkLimiter }){
      
           const authToken = localStorage.getItem("authToken");
           axios
-            .put(`${API_URL}/api/jsons/removed`, requestBody, {
+            .put(`${API_URL}api/jsons/removed`, requestBody, {
               headers: {
                 Authorization: `Bearer ${authToken}`,
               },

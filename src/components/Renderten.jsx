@@ -44,7 +44,7 @@ function RenderTen({files, pID, fetchProjects, checkLimiter}){
 
         const authToken = localStorage.getItem("authToken");
         axios
-          .put(`${API_URL}/api/jsonspeopleadded`, requestBody, {
+          .put(`${API_URL}api/jsonspeopleadded`, requestBody, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },

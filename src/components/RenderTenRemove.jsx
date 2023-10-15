@@ -44,7 +44,7 @@ function RenderTenRemove({files, pID, fetchProjects, checkLimiter}){
 
         const authToken = localStorage.getItem("authToken");
         axios
-          .put(`${API_URL}/api/jsonspeopleremoved`, requestBody, {
+          .put(`${API_URL}api/jsonspeopleremoved`, requestBody, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },

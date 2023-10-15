@@ -43,7 +43,7 @@ function RenderToRemove({files,pID,  fetchProjects}){
 
         const authToken = localStorage.getItem("authToken");
         axios
-          .put(`${API_URL}/api/user/removedcount`, requestBody, {
+          .put(`${API_URL}api/user/removedcount`, requestBody, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },
