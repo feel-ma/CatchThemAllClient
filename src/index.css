@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Proxima Nova", system-ui, sans-serif;
+  }
+}
+
+
+body {
+  margin: 0;
+}
+
+.custom-right-border {
+  border-right: 2px solid black; /* Adjust the color and thickness as needed */
+}
+
+.custom-bottom-border {
+  border-bottom: 2px solid black; 
+}
+
+
+.custom-nav-border {
+  border-left: 2px solid white; 
+  border-right: 2px solid white; 
+}
