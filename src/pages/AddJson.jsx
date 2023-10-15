@@ -62,7 +62,7 @@ function ProfilePage() {
     
         const authToken = localStorage.getItem("authToken");
         axios
-          .post(`${API_URL}/api/jsons`, requestBody, {
+          .post(`${API_URL}api/jsons`, requestBody, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },
