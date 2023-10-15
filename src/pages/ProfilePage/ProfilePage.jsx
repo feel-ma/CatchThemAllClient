@@ -20,7 +20,7 @@ function ProfilePage() {
   const fetchUser = async () => {
     try {
       const authToken = localStorage.getItem("authToken");
-      const response = await axios.get(`${API_URL}/api/user`, {
+      const response = await axios.get(`${API_URL}api/user`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },

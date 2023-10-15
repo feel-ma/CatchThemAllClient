@@ -75,7 +75,7 @@ console.log(fetchUser)
 
     const authToken = localStorage.getItem("authToken");
           axios
-            .put(`${API_URL}/api/time/day`, requestBody, {
+            .put(`${API_URL}api/time/day`, requestBody, {
               headers: {
                 Authorization: `Bearer ${authToken}`,
               },
@@ -106,7 +106,7 @@ console.log(fetchUser)
 
     const authToken = localStorage.getItem("authToken");
           axios
-            .put(`${API_URL}/api/time/weekstart`, requestBody, {
+            .put(`${API_URL}api/time/weekstart`, requestBody, {
               headers: {
                 Authorization: `Bearer ${authToken}`,
               },
@@ -138,7 +138,7 @@ console.log(fetchUser)
 
     const authToken = localStorage.getItem("authToken");
           axios
-            .put(`${API_URL}/api/time/month`, requestBody, {
+            .put(`${API_URL}api/time/month`, requestBody, {
               headers: {
                 Authorization: `Bearer ${authToken}`,
               },
@@ -201,7 +201,7 @@ console.log(fetchUser)
 
           const authToken = localStorage.getItem("authToken");
           axios
-            .put(`${API_URL}/api/user/limitreached`, requestBody, {
+            .put(`${API_URL}api/user/limitreached`, requestBody, {
               headers: {
                 Authorization: `Bearer ${authToken}`,
               },
@@ -257,7 +257,7 @@ console.log(fetchUser)
 
   const authToken = localStorage.getItem("authToken");
   axios
-    .put(`${API_URL}/api/user/resetlimit`, requestBody, {
+    .put(`${API_URL}api/user/resetlimit`, requestBody, {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
@@ -284,7 +284,7 @@ console.log(fetchUser)
   const fetchProjects = async () => {
     try {
       const authToken = localStorage.getItem("authToken");
-      const response = await axios.get(`${API_URL}/api/jsons`, {
+      const response = await axios.get(`${API_URL}api/jsons`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -303,7 +303,7 @@ console.log(fetchUser)
   const fetchUser = async () => {
     try {
       const authToken = localStorage.getItem("authToken");
-      const response = await axios.get(`${API_URL}/api/user`, {
+      const response = await axios.get(`${API_URL}api/user`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -328,7 +328,7 @@ console.log(fetchUser)
 
     const authToken = localStorage.getItem("authToken");
     axios
-    .put(`${API_URL}/api/jsons/resetcounter`, requestBody, {
+    .put(`${API_URL}api/jsons/resetcounter`, requestBody, {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
