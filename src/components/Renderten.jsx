@@ -11,10 +11,12 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { user } = useContext(AuthContext);
   const [count, setCount] = useState(0);
+  const [isEmpty,setIsEmpty]=useState(false)
 
   useEffect(() => {
     const firstTen = files.slice(0, 10);
     pickTen(firstTen);
+    checkEnd()
   }, [files]);
 
   const handleCount = (e) => {
@@ -63,10 +65,48 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
     setCount(0);
   }
 
+  function checkEnd(){
+    if (ten.lenght===0){
+      setIsEmpty(true)
+    }
+  }
+
+  function delateJson(e){
+
+    e.preventDefault();
+
+    const requestBody = {
+      pID,
+    };
+
+    const authToken = localStorage.getItem("authToken");
+    axios
+      .delete(`${API_URL}api/jsons`, requestBody, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      })
+      .then((response) => {
+        setIsEmpty(false)
+      })
+      .catch((error) => {
+        console.error(error);
+        setErrorMessage("Failed to submit Profiles.");
+      });
+
+
+  }
+
   return (
     <div className="max-w-[60%]">
       <div className="mt-10">
-        <div>
+        {isEmpty? <div> 
+          <div>
+            <h1>Directory empty</h1>
+            <h2>Please delate</h2>
+            <button onClick={delateJson}>Delate</button>
+          </div>
+        </div> : <div>
           {ten.map((profile) => (
             <div className="m-1 " key={profile.id}>
               <a
@@ -124,7 +164,8 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
               Save requests
             </button>
           </form>
-        </div>
+        </div> }
+       
       </div>
     </div>
   );

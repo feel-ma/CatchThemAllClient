@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
-import RenderToRemove from "./RenderProcessed";
 import RenderTenRemove from "./RenderTenRemove";
 
 const API_URL = process.env.REACT_APP_SERVER_URL;
