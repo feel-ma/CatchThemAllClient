@@ -56,7 +56,15 @@ function ProfilePage() {
   return (  
     <> 
       {loading ? (
-        <div>loading</div>
+        <div className='flex flex-col justify-center items-center m-20 p-10'>
+          <h1>loading</h1>
+          <p>The Server is probably in Idle mode....</p>
+          <p>Please wait some time and refresh the page</p>
+          <p>The process can take up to 2 Minutes</p>
+          <p>Server goes in idle after 15 minutes of inactivity in order to save energy and reduce costs</p>
+
+        </div>
+        
       ) : (
         <div >
 
