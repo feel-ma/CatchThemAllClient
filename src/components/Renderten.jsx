@@ -71,7 +71,7 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
     console.log(ten[1])
 
 
-    if (ten.lenght==0){
+    if (ten.lenght<1){
       setIsEmpty(true)
       console.log("im working but not really")
     }
