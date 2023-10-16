@@ -66,6 +66,11 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
   }
 
   function checkEnd(){
+    console.log(ten.length)
+    console.log(ten[1])
+    console.log(ten[1])
+
+
     if (ten.lenght===0){
       setIsEmpty(true)
     }
