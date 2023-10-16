@@ -84,8 +84,11 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
     e.preventDefault();
 
     const requestBody = {
+      owner: user._id,
+      howMany,
       pID,
     };
+
 
     const authToken = localStorage.getItem("authToken");
     axios
@@ -109,10 +112,10 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
     <div className="max-w-[60%]">
       <div className="mt-10">
         {isEmpty? <div> 
-          <div className=" min-w-80% max-w-full flex flex-col justify-center items-center">
+          <div className=" min-w-full max-w-full p-20 flex flex-col justify-center items-center">
             <h1 className="text font-bold text-xl">Directory empty</h1>
             <h2>Please delate</h2>
-            <button className="mx-5 mt-4 p-3 rounded-full bg-red-200 text-white" onClick={delateJson}>Delate</button>
+            <button className="mx-5 mt-4 p-3 rounded-full bg-red-400 text-white" onClick={delateJson}>Delate</button>
           </div>
         </div> : <div>
           {ten.map((profile) => (
