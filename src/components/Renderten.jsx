@@ -107,10 +107,10 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
     <div className="max-w-[60%]">
       <div className="mt-10">
         {isEmpty? <div> 
-          <div>
-            <h1>Directory empty</h1>
+          <div className=" min-w-80% max-w-full flex flex-col justify-center items-center">
+            <h1 className="text font-bold text-xl">Directory empty</h1>
             <h2>Please delate</h2>
-            <button onClick={delateJson}>Delate</button>
+            <button className="mx-5 mt-4 p-3 rounded-full bg-red-200 text-white" onClick={delateJson}>Delate</button>
           </div>
         </div> : <div>
           {ten.map((profile) => (
