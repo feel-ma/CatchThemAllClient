@@ -17,7 +17,7 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
     const firstTen = files.slice(0, 10);
     pickTen(firstTen);
     checkEnd()
-  }, [files]);
+  }, [files,isEmpty]);
 
   const handleCount = (e) => {
     setHowMany(e.target.value);
@@ -67,12 +67,13 @@ function RenderTen({ files, pID, fetchProjects, checkLimiter }) {
 
   function checkEnd(){
     console.log(ten.length)
-    console.log(ten[1])
+    console.log(ten[0])
     console.log(ten[1])
 
 
-    if (ten.lenght===0){
+    if (ten.lenght==0){
       setIsEmpty(true)
+      console.log("im working but not really")
     }
   }
 
