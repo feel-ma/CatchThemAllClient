@@ -1,20 +1,18 @@
-import React, { useEffect, useState,useContext  } from 'react';
+import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
 
-const API_URL =  process.env.REACT_APP_SERVER_URL;
-
+const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function ProfilePage() {
-
-  const [fetchedUser,setFetchedUser] =useState("")
-  const [totalAdded, setTotalAdded] =useState(0)
-  const [loading, isLoading] = useState(true)
-  const [moreStats, showMoreStats] = useState(false)
+  const [fetchedUser, setFetchedUser] = useState("");
+  const [totalAdded, setTotalAdded] = useState(0);
+  const [loading, isLoading] = useState(true);
+  const [moreStats, showMoreStats] = useState(false);
 
   useEffect(() => {
-    fetchUser()
-    total()
+    fetchUser();
+    total();
   }, [totalAdded]);
 
   const fetchUser = async () => {
@@ -26,103 +24,108 @@ function ProfilePage() {
         },
       });
       setFetchedUser(response.data);
-      isLoading(false)
-      //console.log("fetchtry User",response.data)
+      isLoading(false);
     } catch (error) {
       console.error(error);
     }
   };
 
-  function total(){
+  function total() {
+    let total = 0;
 
-    let total= 0
+    if (fetchedUser) {
+      fetchedUser.monthlyResults.map((m) => {
+        total += m.total;
+      });
+    }
 
-    if(fetchedUser){ 
-      fetchedUser.monthlyResults.map((m) =>{
-        total+=m.total
-       
-      })
-  }
-   
-    setTotalAdded(total)
+    setTotalAdded(total);
   }
 
-  function showMore(){
-    showMoreStats(!moreStats)
+  function showMore() {
+    showMoreStats(!moreStats);
   }
 
-
-
-  return (  
-    <> 
+  return (
+    <>
       {loading ? (
-        <div className='flex flex-col justify-center items-center m-20 p-10'>
-          <h1>loading</h1>
+        <div className="flex flex-col justify-center items-center m-20 p-10">
+          <h1 className=" font-extrabold">loading</h1>
           <p>The Server is probably in Idle mode....</p>
           <p>Please wait some time and refresh the page</p>
           <p>The process can take up to 2 Minutes</p>
-          <p>Server goes in idle after 15 minutes of inactivity in order to save energy and reduce costs</p>
-
+          <p>
+            Server goes in idle after 15 minutes of inactivity in order to save
+            energy and reduce costs
+          </p>
         </div>
-        
       ) : (
-        <div >
-
-          <div className='flex justify-evenly mt-10'>
-          <div className='m-10 rounded-lg h-[10rem] w-[300px] shadow-xl ring-1 ring-slate-900/5 flex flex-col items-center justify-center '>
-          <h2 className='text-center font-medium tracking-tight'>How many Actions Today:</h2>
-          <h1 className='text-center p-3 font-extrabold text-3xl'> {fetchedUser.actionsDay} </h1>
-
-          </div>
-
-          <div className='m-10 rounded-lg w-[300px]  h-[10rem] shadow-xl ring-1 ring-slate-900/5 flex flex-col items-center justify-center '>
-
-          <h2 className='text-center font-medium tracking-tight'>How many Actions this Week:</h2>
-          <h1 className='text-center p-3 font-extrabold text-3xl'> {fetchedUser.actionsWeek}</h1>
-
-          </div>
-
-          <div className='m-10 rounded-lg w-[300px]  h-[10rem] shadow-xl ring-1 ring-slate-900/5 flex flex-col items-center justify-center '>
-
-          <h2 className='text-center font-medium tracking-tight'>How many Actions this Month:</h2>
-          <h1 className='text-center p-3 font-extrabold text-3xl'>{fetchedUser.actionsMonth}</h1>
-
-
-          </div>
-          </div>
-          
-         
-          
-         
-
-          <button onClick={showMore} className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600"> Show more Stats</button>
-          {moreStats &&  <div> <div className='p-10 mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4' > 
-          {fetchedUser.monthlyResults.map((m) => (
-            <div key={m.month}  className=' rounded-lg h-[10rem] w-[80%] shadow-md ring-1 ring-slate-900/5 flex flex-col items-center justify-center '>
-              <h1 className='text-center font-medium tracking-tight'>{m.month}</h1>
-              <h1 className='text-center p-3 font-extrabold text-3xl'>{m.total}</h1>
+        <div>
+          <div className="flex justify-evenly mt-10">
+            <div className="m-10 rounded-lg h-[10rem] w-[300px] shadow-xl ring-1 ring-slate-900/5 flex flex-col items-center justify-center ">
+              <h2 className="text-center font-medium tracking-tight">
+                How many Actions Today:
+              </h2>
+              <h1 className="text-center p-3 font-extrabold text-3xl">
+                {" "}
+                {fetchedUser.actionsDay}{" "}
+              </h1>
             </div>
-          ))}
-          
 
-          </ div >
+            <div className="m-10 rounded-lg w-[300px]  h-[10rem] shadow-xl ring-1 ring-slate-900/5 flex flex-col items-center justify-center ">
+              <h2 className="text-center font-medium tracking-tight">
+                How many Actions this Week:
+              </h2>
+              <h1 className="text-center p-3 font-extrabold text-3xl">
+                {" "}
+                {fetchedUser.actionsWeek}
+              </h1>
+            </div>
 
+            <div className="m-10 rounded-lg w-[300px]  h-[10rem] shadow-xl ring-1 ring-slate-900/5 flex flex-col items-center justify-center ">
+              <h2 className="text-center font-medium tracking-tight">
+                How many Actions this Month:
+              </h2>
+              <h1 className="text-center p-3 font-extrabold text-3xl">
+                {fetchedUser.actionsMonth}
+              </h1>
+            </div>
+          </div>
 
-
-          <h2 className='mt-5 text-2xl text-red-600'>Total profile processed: {totalAdded}!!</h2>
-
-          </div>}
-
-
-         
+          <button
+            onClick={showMore}
+            className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600"
+          >
+            {" "}
+            Show more Stats
+          </button>
+          {moreStats && (
+            <div>
+              {" "}
+              <div className="p-10 mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                {fetchedUser.monthlyResults.map((m) => (
+                  <div
+                    key={m.month}
+                    className=" rounded-lg h-[10rem] w-[80%] shadow-md ring-1 ring-slate-900/5 flex flex-col items-center justify-center "
+                  >
+                    <h1 className="text-center font-medium tracking-tight">
+                      {m.month}
+                    </h1>
+                    <h1 className="text-center p-3 font-extrabold text-3xl">
+                      {m.total}
+                    </h1>
+                  </div>
+                ))}
+              </div>
+              <h2 className="mt-5 text-2xl text-red-600">
+                Total profile processed: {totalAdded}!!
+              </h2>
+            </div>
+          )}
         </div>
-      )
-      }
+      )}
     </>
   );
-  
- 
-  
 }
 
 export default ProfilePage;

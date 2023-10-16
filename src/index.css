@@ -8,7 +8,6 @@
   }
 }
 
-
 body {
   margin: 0;
 }
@@ -18,11 +17,10 @@ body {
 }
 
 .custom-bottom-border {
-  border-bottom: 2px solid black; 
+  border-bottom: 2px solid black;
 }
 
-
 .custom-nav-border {
-  border-left: 2px solid white; 
-  border-right: 2px solid white; 
+  border-left: 2px solid white;
+  border-right: 2px solid white;
 }

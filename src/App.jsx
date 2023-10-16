@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import AddJson from "./pages/AddJson"
+import AddJson from "./pages/AddJson";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -44,7 +44,7 @@ function App() {
             </IsAnon>
           }
         />
-         <Route
+        <Route
           path="/addjson"
           element={
             <IsPrivate>
