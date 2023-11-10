@@ -18,6 +18,7 @@ Monitor your daily, weekly, and monthly interactions through the app's profile h
 Links:
 
 Catch Them All App (Idle - Wait a Few Minutes for Server Wake-up)
+
 [
 Catch Them All Backend (Manage Your Interactions)](https://github.com/feel-ma/CatchThemAllServer)
 
