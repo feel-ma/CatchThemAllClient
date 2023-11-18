@@ -35,7 +35,9 @@ function ProfilePage() {
 
     if (fetchedUser) {
       fetchedUser.monthlyResults.map((m) => {
-        total += m.total;
+
+        console.log(m.total)
+        total = total+  m.total;
       });
     }
 
@@ -43,6 +45,7 @@ function ProfilePage() {
   }
 
   function showMore() {
+    total()
     showMoreStats(!moreStats);
   }
 
