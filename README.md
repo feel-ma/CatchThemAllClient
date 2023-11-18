@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+Catch Them All is a user-friendly web application I developed to assist musicians in expanding their fan base on Instagram while adhering to platform guidelines. This tool was born out of my personal need for a seamless and controlled approach to engaging with fans. Here's how it works:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-Creating a Profile:
+Start by creating a profile on Catch Them All. This profile will differentiate your interactions and ensure personalized engagement with your audience.
 
-## Available Scripts
+-Uploading Instagram Profiles:
+Upload a JSON file containing Instagram profiles that you want to interact with. The app allows you to load and manage profiles efficiently.
 
-In the project directory, you can run:
+-Managing Interactions:
+In the app's dashboard, you can view the profiles you've uploaded. Interact with them by adding or removing profiles from your list. The app allows you to manage up to 10 profiles at a time, ensuring controlled and gradual engagement.
 
-### `npm start`
+-Setting Interaction Limits:
+Catch Them All includes a counter system that limits your interactions to prevent your Instagram account from being flagged or banned. After a set number of actions, the app prevents you from doing more actions, in order to avoid any issues with Instagram's guidelines.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-Real-time Tracking and History:
+Monitor your daily, weekly, and monthly interactions through the app's profile history feature. It provides insights into your engagement activities, allowing you to assess your progress.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Links:
 
-### `npm test`
+Catch Them All App (Idle - Wait a Few Minutes for Server Wake-up)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[
+Catch Them All Backend (Manage Your Interactions)](https://github.com/feel-ma/CatchThemAllServer)
 
-### `npm run build`
+Test User Profile (Explore App Functionalities)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+How to Use:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-Access the App: Click on the provided app link. Please note that the app may restrict certain actions based on a timer, ensuring compliance with Instagram's guidelines. The app dynamically adjusts the available options based on the timing of your last interaction to prevent any potential issues.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-Upload Profiles: Start by uploading the Instagram profiles you want to engage with in JSON format. These profiles will form the basis of your interactions.
 
-### `npm run eject`
+-Follow-Unfollow Strategy: The app strategically manages your interactions by generating a list of profiles to remove, optimizing your follower-to-following ratio. This approach helps you remove profiles that didn't follow you back, enhancing your Instagram experience.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-Controlled Interactions: Within the app's dashboard, you can view the profiles you've uploaded. Interact with them by adding or removing profiles from your list. The app dynamically adjusts the available actions based on a timer, ensuring controlled and gradual engagement while safeguarding your Instagram account.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-Track Progress: Utilize the profile history section to monitor your interactions and assess your fan base growth.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Catch Them All operates seamlessly, significantly boosting fans and notability. Its efficiency has garnered attention from labels and club owners, all achieved automatically, saving valuable time.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to explore Catch Them All, engage with the test user profile, and experience the seamless interaction management it offers. Your feedback and insights are highly appreciated as they contribute to refining and enhancing the app's functionality.
