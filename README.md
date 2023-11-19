@@ -17,12 +17,12 @@ Monitor your daily, weekly, and monthly interactions through the app's profile h
 
 Links:
 
-Catch Them All App (Idle - Wait a Few Minutes for Server Wake-up)
+[Catch Them All App (Idle - Wait a Few Minutes for Server Wake-up)](https://catchthemall.onrender.com/)
 
 [
 Catch Them All Backend (Manage Your Interactions)](https://github.com/feel-ma/CatchThemAllServer)
 
-Test User Profile (Explore App Functionalities)
+Test User Profile (Explore App Functionalities) Mail: test@mio.io Password: 1234
 
 How to Use:
 
