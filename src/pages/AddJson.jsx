@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+/*import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import file from "../jsons/friday.json";
@@ -114,3 +114,116 @@ function ProfilePage() {
 }
 
 export default ProfilePage;
+*/
+
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../context/auth.context";
+import axios from "axios";
+
+const API_URL = process.env.REACT_APP_SERVER_URL;
+
+function ProfilePage() {
+  const { user } = useContext(AuthContext);
+
+  const [name, setName] = useState("");
+  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [data, setData] = useState([]);  // State for loaded data from file
+  const [jsonData, setJsonData] = useState([]);  // Temporary storage for parsed JSON file
+
+  const handleType = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const fileContent = event.target.result;
+      
+      try {
+        const parsedData = JSON.parse(fileContent);
+        setJsonData(parsedData); // Store parsed JSON in jsonData
+        setData(parsedData); // Update main data state with uploaded file content
+      } catch (error) {
+        setErrorMessage("Failed to parse JSON file.");
+        console.error("Error parsing JSON:", error);
+      }
+    };
+
+    reader.readAsText(file);
+  };
+
+  async function saveData(e) {
+    e.preventDefault();
+
+    const requestBody = {
+      owner: user._id,
+      name,
+      data,  // Send uploaded file data (not the static file)
+    };
+
+    const authToken = localStorage.getItem("authToken");
+    try {
+      await axios.post(`${API_URL}api/jsons`, requestBody, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+      setErrorMessage(null);
+    } catch (error) {
+      console.error("Error uploading data:", error);
+      setErrorMessage("Failed to upload data.");
+    }
+
+    setName("");
+  }
+
+  return (
+    <div className="mx-auto w-full max-w-screen-xl mt-10">
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold mb-4">Upload a JSON file</h1>
+
+        <form onSubmit={saveData}>
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-bold mb-2 mt-5">
+              Name:
+            </label>
+            <input
+              type="text"
+              className="border-2 w-[80%] border-slate-200 m-2 px-3 py-2 shadow-sm rounded-md focus:outline-none focus:border-lime-400"
+              value={name}
+              onChange={handleType}
+              placeholder="Enter a name"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-bold mb-2">
+              Select JSON file:
+            </label>
+            <input
+              type="file"
+              accept=".json"
+              className="border-2 w-[80%] border-slate-200 m-2 px-3 py-2 shadow-sm rounded-md focus:outline-none focus:border-lime-400"
+              onChange={handleFileChange}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600"
+          >
+            Upload Data
+          </button>
+        </form>
+
+        {errorMessage && <p className="text-red-600 mt-4">{errorMessage}</p>}
+      </div>
+    </div>
+  );
+}
+
+export default ProfilePage;
+
